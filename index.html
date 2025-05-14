@@ -2,13 +2,13 @@
 <html>
 
 <head>
-  <script src="https://aframe.io/releases/1.3.0/aframe.min.js">
+  <script src="https://aframe.io/releases/1.3.0/aframe.min.js">
 
-  </script>
-  <script src="https://raw.githack.com/AR-js-org/AR.js/3.4.5/aframe/build/aframe-ar.js">
-  </script>
+  </script>
+  <script src="https://raw.githack.com/AR-js-org/AR.js/3.4.5/aframe/build/aframe-ar.js">
+  </script>
 
-  <script src="https://cdn.jsdelivr.net/gh/donmccurdy/aframe-extras@v6.1.1/dist/aframe-extras.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/gh/donmccurdy/aframe-extras@v6.1.1/dist/aframe-extras.min.js"></script>
 
 </head>
 
@@ -16,23 +16,29 @@
 
 <body style="margin : 0px; overflow: hidden;">
 
-  <a-scene embedded arjs="sourceType: webcam;" vr-mode-ui="enabled: false"
-    renderer="sortObjects: true; antialias: true; colorManagement: true; physicallyCorrectLights; logarithmicDepthBuffer: true;"
-    arjs="trackingMethod: best" detectionMode='color_and_matrix' changeMatrixMode="modelViewMatrix" smooth="true"
-    smoothCount="5" smoothTolerance=".05" smoothThreshold="5" sourceWidth="800" sourceHeight="600" displayWidth="1280"
-    displayHeight="720" shadow="autoUpdate: true; enabled: true; type:pcf" light="defaultLightsEnabled: true"
-    gltf-model="dracoDecoderPath: https://cdn.jsdelivr.net/npm/three@0.129.0/examples/js/libs/draco/gltf/;">
-    <a-assets>
-      <a-asset-item id="glbTest" src="./assets/test.glb"></a-asset-item>
-    </a-assets>
+  <a-scene embedded arjs="sourceType: webcam;" vr-mode-ui="enabled: false"
+    renderer="sortObjects: true; antialias: true; colorManagement: true; physicallyCorrectLights; logarithmicDepthBuffer: true;"
+    arjs="trackingMethod: best" detectionMode='color_and_matrix' changeMatrixMode="modelViewMatrix" smooth="true"
+    smoothCount="5" smoothTolerance=".05" smoothThreshold="5" sourceWidth="800" sourceHeight="600" displayWidth="1280"
+    displayHeight="720" shadow="autoUpdate: true; enabled: true; type:pcf" light="defaultLightsEnabled: true"
+    gltf-model="dracoDecoderPath: https://cdn.jsdelivr.net/npm/three@0.129.0/examples/js/libs/draco/gltf/;">
+    <a-assets>
+      <a-asset-item id="glbTest2" src="./assets/test2.glb"></a-asset-item>
+      <a-asset-item id="glbTest" src="./assets/test.glb"></a-asset-item>
+    </a-assets>
+    
+  
+    <a-marker type="pattern" url="assets/dd.patt">
+      <a-entity scale="0.5 0.5 0.5" gltf-model="#glbTest" animation-mixer rotation="-90 0 0"></a-entity>
+    </a-marker>
 
-    <a-marker preset="hiro">
-      <a-entity scale="10 10 10" gltf-model="#glbTest" animation-mixer></a-entity>
-    </a-marker>
+    <a-marker type="pattern" url="assets/hh.patt">
+      <a-entity scale="0.5 0.5 0.5" gltf-model="#glbTest2" animation-mixer rotation="-90 0 0"></a-entity>
+</a-marker>
+  
+    <a-camera position="0 0 0" look-controls="enabled: false"></a-camera>
 
-    <a-camera position="0 0 0" look-controls="enabled: false"></a-camera>
-
-  </a-scene>
+  </a-scene>
 
 
 </body>
